@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>编辑地址</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<script src="../../js/flexible.js"></script>
+		<script src="../../js/vue.js"></script>
+		<!--公共样式-->
+		<link rel="stylesheet" href="../../css/public.css" />
+		<style>
+			.a-row{
+				margin-bottom:0.05rem;
+				display:flex;
+				align-items:center;
+				min-height:1rem;
+				background-color:#fff;
+			}
+			.a-col-3{
+				width:25%;
+			}
+			.a-col-9{
+				width:75%;
+				
+			}
+			.a-text-input{
+				width:100%;
+				padding-right:0.7rem;
+				box-sizing:border-box;
+				font-size:0.39rem;
+			}
+			.a-text-input:active,.a-text-input:focus,.a-text-input{
+				background:transparent;
+				border:none;
+				outline:none;
+			}
+			.a-text-name{
+				text-indent:0.7rem;
+				font-size:0.39rem;
+				color:#000;
+			}
+			.a-select{
+				display:flex;
+				padding-right:0.7rem;
+			}
+			.a-select:active{
+				opacity:0.6;
+			}
+			.as-title {
+				font-size: 0.39rem;
+				color: #000000;
+			}
+			.as-icon{
+				text-align:right;
+				flex:1;
+			}
+			.as-icon::after{
+				content:"";
+				display:inline-block;
+				border:0.2rem solid rgb(96,96,96);
+				border-bottom:0;
+				margin-left:0.5rem;
+				border-left-color:transparent;
+				border-right-color:transparent;
+			}
+			
+			.ac-frame{
+				display:flex;
+				align-items:center;
+				padding:0.3rem 0 0 0.7rem;
+			}
+			.ac-f-status{
+				position:relative;
+			}
+			.afs-checkbox{
+				position:absolute;
+				top:0;
+				left:0;
+				right:0;
+				bottom:0;
+				width:100%;
+				height:100%;
+				z-index:2;
+				margin:0;
+				padding:0;
+				opacity:0;
+			}
+			.afs-shape{
+				width:0.5rem;
+				height:0.5rem;
+				padding-top:0.1rem;
+				box-sizing: border-box;
+				display:flex;
+				justify-content:center;
+				border-radius:50%;
+				animation:all 0.5s;
+				background-image:url(../../img/check-none.png);
+				background-position:0 0;
+				background-size:0.5rem 0.5rem;
+				background-repeat:no-repeat;
+			}
+			.afs-checkbox:checked+.afs-shape{
+				background-image: url(../../img/check-ok.png);
+			}
+			.a-submit{
+				padding:1rem 0.5rem;
+				width:100%;
+				box-sizing: border-box;
+			}
+			.a-s-btn{
+				width:100%;
+				height:1rem;
+				text-align:center;
+				border-radius:1rem;
+				background-color: #ff4444;
+				border:none;
+				font-size:0.42rem;
+				color:#fff;
+				outline:none;
+			}
+			.ac-f-text{
+				font-size: 0.33rem;
+				font-weight: normal;
+				font-stretch: normal;
+				letter-spacing: 0rem;
+				color: #000000;
+				padding:0 0.1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<lw-back back-v="编辑地址"></lw-back>
+			<form action="#" id="address">
+				<div class="a-ul">
+					<div class="a-row">
+						<div class="a-col-3">
+							<div class="a-text-name">姓名</div>
+						</div>
+						<div class="a-col-9">
+							<input type="text" placeholder="请输入收货人姓名" class="a-text-input" />
+						</div>
+					</div>
+					<div class="a-row">
+						<div class="a-col-3">
+							<div class="a-text-name">电话</div>
+						</div>
+						<div class="a-col-9">
+							<input type="text" placeholder="请输入收货人联系方式" class="a-text-input" />
+						</div>
+					</div>
+					
+					<div class="a-row">
+						<div class="a-col-3">
+							<div class="a-text-name">地区</div>
+						</div>
+						<div class="a-col-9">
+							<div class="a-select" onclick="location.assign('../chooseaddress/index.html')">
+								<span class="as-title">广东省广州市白云区</span>
+								<div class="as-icon">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="a-row">
+						<div class="a-col-3">
+							<div class="a-text-name">详细地址</div>
+						</div>
+						<div class="a-col-9">
+							<input type="text" placeholder="街道,门牌号" class="a-text-input" />
+						</div>
+					</div>
+				</div>
+				<div class="a-checkbox">
+					<div class="ac-frame">
+						<div class="ac-f-status">
+							<input type="checkbox" class="afs-checkbox" />
+							<div class="afs-shape"></div>
+						</div>
+						<span class="ac-f-text">设为我的默认地址</span>
+					</div>
+				</div>
+				<div class="a-submit">
+					<button class="a-s-btn">保存</button>
+				</div>
+			</form>
+		</div>
+		
+		<!--必须放在Vue实例化前，否则无效-->
+		<script src="../../js/component.js"></script>
+		<script>
+			var app=new Vue({
+				el:"#app"
+			});
+		</script>
+	</body>
+</html>

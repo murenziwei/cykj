@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	
+ 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<script src="../../js/flexible.js"></script>
+		<title>首页</title>
+		<!--公共样式-->
+		<link rel="stylesheet" href="../../css/public.css" />
+		<!--轮播样式-->
+		<link rel="stylesheet" href="../../css/swiper.min.css" />
+		<style>
+			
+			.home-header{
+				display:flex;
+				justify-content: space-around;
+				padding:0.25rem 0;
+				background-color:#fff;
+				margin-bottom:0.25rem;
+			}
+			.hh-item{
+				text-align:center;
+			}
+			.hh-item>p{
+				margin:0;
+			}
+			.hh-i-num{
+				font-size:0.5rem;
+				color:rgb(255,70,69);
+			}
+			.hh-i-text{
+				font-size:0.35rem;
+				color:rgb(152,152,152);
+				padding:3px 0;
+			}
+			.hb-image{
+				height:6rem;
+				width:100%;
+			}
+			.h-b-item{
+				width:100%;
+				height:6rem;
+			}
+			.hbi-img{
+				width:100%;
+				height:6rem;
+			}
+			.home-banner{
+				position:relative;
+				height:6rem;
+				overflow:hidden;
+			}
+			.hb-p{
+				position:absolute;
+				z-index:2;
+				bottom:0;
+				display:flex;
+				align-items:center;
+				justify-content:center;
+				width:100%;
+			}
+			.hb-point{
+				padding:0;
+				display:flex;
+				align-items:center;
+				justify-content:space-between;
+			}
+			.h-b-control{
+				width:0.2rem;
+				height:0.2rem;
+				border-radius:100%;
+				border:1px solid #fff;
+				overflow:hidden;
+				margin:0 7px;
+			}
+			.h-b-control.active{
+				background-color:#fff;
+			}
+			.home-classify{
+				background-color:#fff;
+				margin-bottom:0.25rem;
+			}
+			.hc-frame{
+				display:flex;
+				flex-wrap:wrap;
+			}
+			.hc-f-item{
+				width:25%;
+				text-align:center;
+				display:flex;
+				flex-direction: column;
+				justify-content:center;
+				align-items: center;
+				padding:0.25rem 0;
+			}
+			.hfi-img{
+				width:1.35rem;
+				height:1.35rem;
+				border-radius:100%;
+				background-color:rgba(239,97,145,1);
+				background-image:url(../../img/hotbug.png);
+				background-position:center;
+				background-size:0.75rem 0.75rem;
+				background-repeat:no-repeat;
+			}
+			.hfi-text{
+				font-size:0.4rem;
+				padding:5px 0;
+			}
+			.hc-f-footer{
+				text-align: center;
+				display:flex;
+				align-items: center;
+				justify-content: center;
+				font-size:0.4rem;
+				padding:0.25rem 0;
+			}
+			.hff-text{
+				padding:0 3px;
+				color:#000;
+			}
+			.hc-f-footer:after{
+				content:"";
+				display:block;
+				width:0;
+				height:0;
+				border:0.175rem solid #000;
+				border-bottom:0;
+				border-left-color:transparent;
+				border-right-color:transparent;
+			}
+			.home-cd{
+				height:6rem;
+				width:100%;
+			}
+			.hc-img{
+				height:6rem;
+				overflow:hidden;
+			}
+			.hc-img>img{
+				height:6rem;
+				width:100%;
+			}
+			.hd-c-list{
+				display:flex;
+				flex-wrap:wrap;
+				width:100%;
+			}
+			.hcl-item{
+				width:50%;
+				box-sizing:border-box;
+				display:flex;
+				align-items:center;
+				justify-content: center;
+				padding:0 0.1rem;
+			}
+			.hcl-i-frame{
+				/*width:5.5rem;*/
+				background-color:#fff;
+				border-radius: 5px;
+				margin-top:0.25rem;
+				box-shadow: 0 0 1px #fff;
+    			overflow: hidden;
+			}
+			.hi-t-img{
+				width:100%;
+				height:5.5rem;
+			}
+			.hi-top{
+				height:5.5rem;
+			}
+			.hi-bottom{
+				padding:0.15rem;
+				
+			}
+			.hi-b-title{
+				font-size:0.4rem;
+				color:rgba(19,19,19,0.9);
+				
+			}
+			.hi-b-center{
+				display:flex;
+				align-items:center;
+			}
+			.hbc-img{
+				width:0.6rem;
+				height:0.6rem;
+				border-radius:100%;
+			}
+			.hbc-name{
+				font-size:0.3rem;
+				color:rgba(135,135,135,1);
+			}
+			.hf-frame{
+				display:flex;
+				justify-content: space-between;
+				align-items:center;
+				/*padding:0.25rem 0;*/
+			}
+			.hf-left{
+				color:rgba(254,85,84,1);
+				font-size:0.5rem;
+			}
+			.hf-btn{
+				border:1px solid rgba(254,85,84,1);
+				border-radius:5px;
+				color:rgba(254,85,84,1);
+				font-size:0.5rem;
+				padding:2px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--头部-->
+		<div class="home-header">
+			<div class="hh-item">
+				<p class="hh-i-num">2132</p>
+				<p class="hh-i-text">会员数</p>
+			</div>
+			
+			<div class="hh-item">
+				<p class="hh-i-num">2132</p>
+				<p class="hh-i-text">经销商</p>
+			</div>
+			<div class="hh-item">
+				<p class="hh-i-num">2132</p>
+				<p class="hh-i-text">商家</p>
+			</div>
+		</div>
+		<!--轮播-->
+		<div class="home-banner swiper-container">
+			<div class="hb-image swiper-wrapper">
+				<div class="h-b-item swiper-slide">
+					<img src="../../img/index/link.jpg" class="hbi-img" />
+				</div>
+				<div class="h-b-item swiper-slide">
+					<img src="../../img/index/link.jpg" class="hbi-img" />
+				</div>
+			</div>
+			<!--<div class="hb-p">
+				<ul class="hb-point">
+					<li class="h-b-control active"></li>
+					<li class="h-b-control"></li>
+				</ul>
+			</div>-->
+			<div class="swiper-pagination"></div>
+		</div>
+		<!--搜索框-->
+		<div class="home-search">
+			<div class="hs-frame">
+				<img src="../../img/search.png" alt="" class="hs-f-icon" />
+				<input placeholder="请输入关键词搜索" class="hs-f-search" />
+			</div>
+		</div>
+		<!--分类-->
+		<div class="home-classify">
+			<div class="hc-frame">
+			  <div class="hc-f-item">
+				<div class="hfi-img">
+				</div>
+				<div class="hfi-text">
+					热卖
+				</div>
+			  </div>
+			  <div class="hc-f-item">
+				<div class="hfi-img">
+				</div>
+				<div class="hfi-text">
+					热卖
+				</div> 
+			  </div>
+			  <div class="hc-f-item">
+				<div class="hfi-img">
+				</div>
+				<div class="hfi-text">
+					热卖
+				</div>
+			  </div>
+			  <div class="hc-f-item">
+				<div class="hfi-img">
+				</div>
+				<div class="hfi-text">
+					热卖
+				</div>
+			  </div>
+			  <div class="hc-f-item">
+				<div class="hfi-img">
+				</div>
+				<div class="hfi-text">
+					热卖
+				</div>
+			  </div>
+			</div>
+			<div class="hc-f-footer">
+				<span class="hff-text">更多分类</span>
+				<i class="hff-down"></i>
+			</div>
+		</div>
+		<!--广告图片-->
+		<div class="home-cd">
+			<div class="hc-img">
+				<img src="../../img/index/link.jpg" alt="" />
+			</div>
+		</div>
+		<!--商品数据-->
+		<div class="home-data">
+			<div class="hd-content">
+				<div class="hd-c-list">
+					<div class="hcl-item">
+					  <div class="hcl-i-frame">
+					    <div class="hi-top"><img src="../../img/index/link.jpg" alt="" class="hi-t-img" /></div>
+					    <div class="hi-bottom">
+					    	<div class="hi-b-title">
+					    		马丁鞋男端些伊尼伦复古大黄邦军写男工写高帮鞋奇偶就
+					    	</div>
+					    	<div class="hi-b-center">
+					    		<img src="../../img/search.png" alt="" class="hbc-img" />
+					    		<span class="hbc-name">威视米邦</span>
+					    	</div>
+					    	<div class="hbc-footer">
+					    		<div class="hf-frame">
+					    			<span class="hf-left">
+					    				￥212.00
+					    			</span>
+					    			<div class="hf-btn">
+					    				购买
+					    			</div>
+					    		</div>
+					    	</div>
+					    </div>
+					  </div>
+					</div>
+					
+					<div class="hcl-item">
+					  <div class="hcl-i-frame">
+					    <div class="hi-top"><img src="../../img/index/link.jpg" alt="" class="hi-t-img" /></div>
+					    <div class="hi-bottom">
+					    	<div class="hi-b-title">
+					    		马丁鞋男端些伊尼伦复古大黄邦军写男工写高帮鞋奇偶就
+					    	</div>
+					    	<div class="hi-b-center">
+					    		<img src="../../img/search.png" alt="" class="hbc-img" />
+					    		<span class="hbc-name">威视米邦</span>
+					    	</div>
+					    	<div class="hbc-footer">
+					    		<div class="hf-frame">
+					    			<span class="hf-left">
+					    				￥212.00
+					    			</span>
+					    			<div class="hf-btn">
+					    				购买
+					    			</div>
+					    		</div>
+					    	</div>
+					    </div>
+					  </div>
+					</div>
+					
+				</div>
+				
+				<div class="hd-c-list">
+					<div class="hcl-item">
+					  <div class="hcl-i-frame">
+					    <div class="hi-top"><img src="../../img/index/link.jpg" alt="" class="hi-t-img" /></div>
+					    <div class="hi-bottom">
+					    	<div class="hi-b-title">
+					    		马丁鞋男端些伊尼伦复古大黄邦军写男工写高帮鞋奇偶就
+					    	</div>
+					    	<div class="hi-b-center">
+					    		<img src="../../img/search.png" alt="" class="hbc-img" />
+					    		<span class="hbc-name">威视米邦</span>
+					    	</div>
+					    	<div class="hbc-footer">
+					    		<div class="hf-frame">
+					    			<span class="hf-left">
+					    				￥212.00
+					    			</span>
+					    			<div class="hf-btn">
+					    				购买
+					    			</div>
+					    		</div>
+					    	</div>
+					    </div>
+					  </div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<script src="../../js/swiper.min.js"></script>
+		<script>
+			//轮播逻辑
+			var swiper=new Swiper('.swiper-container',{
+				pagination:{
+					el:".swiper-pagination",
+					dynamicBullets:true
+				},
+				autoplay:{
+					delay:2000,
+					diableOnInteraction:true
+				}
+			})
+		</script>
+	</body>
+</html>
